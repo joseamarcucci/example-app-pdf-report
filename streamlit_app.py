@@ -2,6 +2,7 @@ import pdfkit
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
 from datetime import date
 import streamlit as st
+st.set_page_config(layout="centered", page_icon="🎓", page_title="Diploma Generator")
 import os
 import subprocess
 from streamlit.components.v1 import iframe
@@ -13,8 +14,7 @@ if 'DYNO' in os.environ:
 else:
     st.write ('loading wkhtmltopdf path on localhost')
     MYDIR = os.path.dirname(__file__)    
-    WKHTMLTOPDF_CMD = os.path.join(MYDIR + "/static/executables/bin/", "wkhtmltopdf.exe")
-st.set_page_config(layout="centered", page_icon="🎓", page_title="Diploma Generator")
+
 st.title("🎓 Diploma PDF Generator")
 
 st.write(

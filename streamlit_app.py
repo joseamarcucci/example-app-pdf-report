@@ -2,14 +2,16 @@ import pdfkit
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
 from datetime import date
 import streamlit as st
+import os
+
 from streamlit.components.v1 import iframe
 if 'DYNO' in os.environ:
-    print ('loading wkhtmltopdf path on heroku')
+    st.write ('loading wkhtmltopdf path on heroku')
     WKHTMLTOPDF_CMD = subprocess.Popen(
         ['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf-pack')], # Note we default to 'wkhtmltopdf' as the binary name
         stdout=subprocess.PIPE).communicate()[0].strip()
 else:
-    print ('loading wkhtmltopdf path on localhost')
+    st.write ('loading wkhtmltopdf path on localhost')
     MYDIR = os.path.dirname(__file__)    
     WKHTMLTOPDF_CMD = os.path.join(MYDIR + "/static/executables/bin/", "wkhtmltopdf.exe")
 st.set_page_config(layout="centered", page_icon="🎓", page_title="Diploma Generator")

@@ -11,3 +11,4 @@ headless = true\n\
 enableCORS=false\n\
 port = $PORT\n\
 " > ~/.streamlit/config.toml
+heroku config:set WKHTMLTOPDF_BINARY=wkhtmltopdf-pack

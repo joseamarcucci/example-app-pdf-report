@@ -1,3 +1,5 @@
+import os
+import subprocess
 # Ensure virtualenv path is part of PATH env var
 os.environ['PATH'] += os.pathsep + os.path.dirname 
 WKHTMLTOPDF_CMD = subprocess.Popen(
@@ -9,8 +11,7 @@ from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoad
 from datetime import date
 import streamlit as st
 st.set_page_config(layout="centered", page_icon="🎓", page_title="Diploma Generator")
-import os
-import subprocess
+
 from streamlit.components.v1 import iframe
 
   

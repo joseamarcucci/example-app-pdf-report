@@ -6,14 +6,7 @@ st.set_page_config(layout="centered", page_icon="🎓", page_title="Diploma Gene
 import os
 import subprocess
 from streamlit.components.v1 import iframe
-if 'DYNO' in os.environ:
-    st.write ('loading wkhtmltopdf path on heroku')
-    WKHTMLTOPDF_CMD = subprocess.Popen(
-        ['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf-pack')], # Note we default to 'wkhtmltopdf' as the binary name
-        stdout=subprocess.PIPE).communicate()[0].strip()
-else:
-    st.write ('loading wkhtmltopdf path on localhost')
-    MYDIR = os.path.dirname(__file__)    
+  
 
 st.title("🎓 Diploma PDF Generator")
 

@@ -2,10 +2,7 @@ import os
 import subprocess
 # Ensure virtualenv path is part of PATH env var
 #os.environ['PATH'] += os.pathsep + os.path.dirname 
-if (platform.system() == 'Darwin'):
-    config = pdfkit.configuration()
-else:
-    config = pdfkit.configuration(wkhtmltopdf='./bin/wkhtmltopdf')
+config = pdfkit.configuration(wkhtmltopdf='./bin/wkhtmltopdf')
 
 import pdfkit
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader

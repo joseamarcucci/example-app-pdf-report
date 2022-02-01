@@ -1,3 +1,9 @@
+# Ensure virtualenv path is part of PATH env var
+os.environ['PATH'] += os.pathsep + os.path.dirname 
+WKHTMLTOPDF_CMD = subprocess.Popen(
+    ['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf')], # Note we default to 'wkhtmltopdf' as the binary name
+    stdout=subprocess.PIPE).communicate()[0].strip()
+
 import pdfkit
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
 from datetime import date
@@ -6,11 +12,7 @@ st.set_page_config(layout="centered", page_icon="🎓", page_title="Diploma Gene
 import os
 import subprocess
 from streamlit.components.v1 import iframe
-# Ensure virtualenv path is part of PATH env var
-os.environ['PATH'] += os.pathsep + os.path.dirname(sys.executable)  
-WKHTMLTOPDF_CMD = subprocess.Popen(
-    ['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf')], # Note we default to 'wkhtmltopdf' as the binary name
-    stdout=subprocess.PIPE).communicate()[0].strip()
+
   
 
 st.title("🎓 Diploma PDF Generator")

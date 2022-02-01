@@ -1,5 +1,5 @@
 mkdir -p ~/.streamlit/
-
+heroku config:set WKHTMLTOPDF_BINARY=wkhtmltopdf-pack
 echo "\
 [general]\n\
 email = \"yzur76@gmail.com\"\n\

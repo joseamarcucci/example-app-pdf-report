@@ -13,6 +13,7 @@ import streamlit as st
 st.set_page_config(layout="centered", page_icon="🎓", page_title="Diploma Generator")
 
 from streamlit.components.v1 import iframe
+pdfkit.from_url('http://google.com', 'out.pdf')
 
   
 

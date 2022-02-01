@@ -2,9 +2,10 @@ import os
 import subprocess
 # Ensure virtualenv path is part of PATH env var
 #os.environ['PATH'] += os.pathsep + os.path.dirname 
-WKHTMLTOPDF_CMD = subprocess.Popen(
-    ['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf')], # Note we default to 'wkhtmltopdf' as the binary name
-    stdout=subprocess.PIPE).communicate()[0].strip()
+if (platform.system() == 'Darwin'):
+    config = pdfkit.configuration()
+else:
+    config = pdfkit.configuration(wkhtmltopdf='./bin/wkhtmltopdf')
 
 import pdfkit
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
